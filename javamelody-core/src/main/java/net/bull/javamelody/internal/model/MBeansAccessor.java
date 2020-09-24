@@ -120,15 +120,7 @@ final class MBeansAccessor {
 	}
 
 	static long getThreadAllocatedBytes(long threadId) {
-		if (!MBEAN_ALLOCATED_BYTES_ENABLED) {
-			return -1L;
-		}
-		try {
-			return (Long) MBEAN_SERVER.invoke(THREADING, "getThreadAllocatedBytes",
-					new Object[] { threadId }, THREAD_ALLOCATED_BYTES_SIGNATURE);
-		} catch (final JMException e) {
-			throw new IllegalStateException(e);
-		}
+		return -1L;
 	}
 
 	static Object invoke(ObjectName name, String operationName, Object[] params, Class<?>[] classes)
